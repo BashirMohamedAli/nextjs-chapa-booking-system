@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Deluxe Room",
+      "description": "A luxurious room with a beautiful view.",
+      "price": 500,
+      "available": true
+    },
+    {
+      "name": "Standard Room",
+      "description": "A comfortable room with all standard amenities.",
+      "price": 300,
+      "available": true
+    },
+    {
+      "name": "Suite",
+      "description": "A spacious suite with a living area and kitchenette.",
+      "price": 800,
+      "available": true
+    },
+    {
+      "name": "Economy Room",
+      "description": "A budget-friendly room with basic facilities.",
+      "price": 200,
+      "available": true
+    }
+  ]
+  
