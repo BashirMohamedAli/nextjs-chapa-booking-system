@@ -1,23 +1,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 import dbConnect from '../lib/dbConnect';
 import Room from '../models/Room';
 
 const Home = ({ initialRooms }) => {
   const [rooms, setRooms] = useState(initialRooms);
-
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const { data } = await axios.get('/api/rooms');
-        setRooms(data);
-      } catch (error) {
-        console.error('Error fetching rooms:', error);
-      }
-    };
-    fetchRooms();
-  }, []);
 
   return (
     <div>
@@ -35,7 +22,7 @@ const Home = ({ initialRooms }) => {
               <p>{room.description}</p>
               <p>Price: {room.price} ETB per night</p>
               <Link href={`/rooms/${room._id}`}>
-                View Details
+              View Details
               </Link>
             </div>
           ))}
@@ -63,7 +50,6 @@ const Home = ({ initialRooms }) => {
   );
 };
 
-// Server-side rendering to fetch initial data
 export async function getServerSideProps() {
   await dbConnect();
   const rooms = await Room.find({ available: true }).lean();

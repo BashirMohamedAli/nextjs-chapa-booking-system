@@ -8,7 +8,6 @@ export default async function handler(req, res) {
 
     const chapaSecret = process.env.CHAPA_WEBHOOK_SECRET;
     const { tx_ref, status } = req.body;
-
     const signature = req.headers['x-chapa-signature'];
 
     const payload = JSON.stringify(req.body);
