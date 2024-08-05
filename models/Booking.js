@@ -5,7 +5,8 @@ const BookingSchema = new mongoose.Schema({
   email: String,
   date: { type: Date, default: Date.now },
   status: { type: String, default: 'pending' },
-  chapaTxRef: String
+  chapaTxRef: String,
+  createdAt: { type: Date, default: Date.now }
 });
 
 export default mongoose.models.Booking || mongoose.model('Booking', BookingSchema);

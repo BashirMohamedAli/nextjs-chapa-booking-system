@@ -28,7 +28,7 @@ export default async function handler(req, res) {
           email,
           tx_ref: booking._id.toString(),
           callback_url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/payment-callback`,
-          return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/confirmation`,
+          return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/booking-history`,
           customization: {
             title: "Room Booking",
             description: `Booking for room ${room.name}`,

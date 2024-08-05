@@ -1,4 +1,7 @@
+// pages/index.js
+import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
 import dbConnect from '../lib/dbConnect';
 import Room from '../models/Room';
@@ -7,46 +10,30 @@ const Home = ({ initialRooms }) => {
   const [rooms, setRooms] = useState(initialRooms);
 
   return (
-    <div>
-      <header>
-        <h1>Welcome to Our Hotel</h1>
-        <p>Your luxurious stay in the heart of Jijiga</p>
+    <Layout>
+      <header className="text-center my-20">
+        <h1 className="text-4xl font-bold">Welcome to Our Hotel</h1>
+        <p className="text-xl text-gray-600">Your luxurious stay in the heart of Jijiga</p>
       </header>
-
-      <section>
-        <h2>Available Rooms</h2>
-        <div className="room-list">
+      <section className='m-8'>
+        <h2 className="text-2xl font-semibold mb-8">Available Rooms</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.map((room) => (
-            <div key={room._id} className="room-card">
-              <h3>{room.name}</h3>
-              <p>{room.description}</p>
-              <p>Price: {room.price} ETB per night</p>
-              <Link href={`/rooms/${room._id}`}>
-              View Details
-              </Link>
+            <div key={room._id} className="bg-white shadow-md rounded-lg overflow-hidden">
+
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{room.name}</h3>
+                <p className="text-gray-600 mt-2">{room.description}</p>
+                <p className="text-gray-800 mt-4">Price: {room.price} ETB per night</p>
+                <Link href={`/rooms/${room._id}`} className="text-blue-500 mt-4 inline-block">
+                  View Details
+                </Link>
+              </div>
             </div>
           ))}
         </div>
       </section>
-
-      <style jsx>{`
-        header {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        .room-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 1.5rem;
-        }
-        .room-card {
-          border: 1px solid #ddd;
-          padding: 1rem;
-          border-radius: 8px;
-          text-align: center;
-        }
-      `}</style>
-    </div>
+    </Layout>
   );
 };
 
