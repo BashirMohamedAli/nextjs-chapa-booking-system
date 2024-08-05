@@ -26,11 +26,10 @@ Welcome to the Next.js Chapa Booking System! This project is a simple, open-sour
 
 ## Tech Stack
 
-- **Frontend**: Next.js (React)
-- **Backend**: Next.js API routes, Node.js
-- **Database**: MongoDB
-- **Payment**: Chapa API
-- **Styling**: CSS (with optional integration of CSS-in-JS or other frameworks)
+- **Frontend & Backend**: Next.js (React framework with server-side rendering capabilities)
+- **Database**: MongoDB (NoSQL database for scalable data storage)
+- **Payment Gateway**: Chapa (Ethiopian payment gateway for processing transactions)
+- **Styling**: Tailwind CSS (Utility-first CSS framework for styling)
 
 ## Getting Started
 
@@ -104,14 +103,19 @@ nextjs-chapa-booking-system/
 ├── .env.local                  # Environment variables
 ├── package.json                # Project dependencies and scripts
 ├── public/                     # Static files like images, icons
+├── components/                 # Shared React components
+│   ├── Layout.js               # Layout component for consistent styling
+│   ├── Navbar.js               # Navigation bar component
+│   ├── Footer.js               # Footer component
 ├── pages/                      # Next.js pages
 │   ├── api/                    # API routes
 │   │   ├── booking.js          # API route for creating bookings
 │   │   ├── webhook.js          # API route for webhook handling
+│   │   ├── booking-history.js  # API route for booking history
 │   ├── rooms/                  # Dynamic routing for rooms
 │   │   ├── [id].js             # Room detail page
-│   ├── confirmation.js         # Confirmation page after successful payment
-│   ├── failed.js               # Page shown when the payment fails
+│   ├── booked-list.js          # Page for displaying booked rooms
+│   ├── booking-history.js      # Page for displaying booking history
 │   ├── index.js                # Home page
 ├── models/                     # Mongoose models for MongoDB
 │   ├── Booking.js              # Booking model
@@ -119,7 +123,7 @@ nextjs-chapa-booking-system/
 ├── lib/                        # Utility functions
 │   ├── dbConnect.js            # MongoDB database connection
 ├── styles/                     # CSS and styling files
-│   ├── globals.css             # Global styles
+│   ├── globals.css             # Global styles (including Tailwind)
 ├── .gitignore                  # Git ignore file
 └── README.md                   # Project documentation
 ```
