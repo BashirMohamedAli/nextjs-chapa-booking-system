@@ -1,4 +1,3 @@
-// pages/api/booking-history.js
 import dbConnect from '../../lib/dbConnect';
 import Booking from '../../models/Booking';
 
@@ -16,6 +15,6 @@ export default async function handler(req, res) {
       res.status(500).json({ message: 'Failed to fetch booking history' });
     }
   } else {
-    res.status(405).end(); // Method Not Allowed
+    res.status(405).end();
   }
 }

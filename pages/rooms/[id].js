@@ -1,11 +1,10 @@
-import { useRouter } from 'next/router';
+import Layout from '../../components/Layout';
 import axios from 'axios';
 import { useState } from 'react';
 import dbConnect from '../../lib/dbConnect';
 import Room from '../../models/Room';
 
 const RoomDetail = ({ room }) => {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -26,21 +25,29 @@ const RoomDetail = ({ room }) => {
   };
 
   return (
-    <div>
-      <h1>{room.name}</h1>
-      <p>{room.description}</p>
-      <p>Price: {room.price} ETB</p>
-      <input
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <button onClick={handleBooking} disabled={loading}>
-        {loading ? 'Processing...' : 'Book Now'}
-      </button>
-    </div>
+    <Layout>
+      <div className="max-w-5xl mx-auto mt-20">
+        <h1 className="text-3xl font-bold mt-6 text-black">{room.name}</h1>
+        <p className="text-gray-600 mt-4">{room.description}</p>
+        <p className="text-yellow-800 mt-4">Price: {room.price} ETB per night</p>
+        <div className="mt-6">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="border p-2 rounded w-full text-black"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            className="bg-yellow-800 text-white px-4 py-2 rounded mt-4"
+            onClick={handleBooking}
+            disabled={loading}
+          >
+            {loading ? 'Processing...' : 'Book Now'}
+          </button>
+        </div>
+      </div>
+    </Layout>
   );
 };
 

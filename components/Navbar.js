@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg p-4 fixed w-full top-0 z-10">
+    <nav className="bg-slate-200 shadow-lg p-4 fixed w-full top-0 z-10">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold text-gray-800">
+        <div className="text-2xl font-bold text-yellow-800">
           <Link href="/">
             Hotel Booking
           </Link>
