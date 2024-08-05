@@ -39,7 +39,7 @@ const RoomDetail = ({ room }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
-            className="bg-yellow-800 text-white px-4 py-2 rounded mt-4"
+            className="bg-yellow-800 text-white px-4 py-2 rounded-sm mt-4"
             onClick={handleBooking}
             disabled={loading}
           >
